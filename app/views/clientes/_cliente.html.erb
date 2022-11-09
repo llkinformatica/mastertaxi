@@ -1,0 +1,64 @@
+<% if action_name === "index" %>
+  <a href='clientes/<%= cliente.id %>'>
+  <div id="<%= dom_id cliente %>" class="bg-white shadow px-5 py-2 border border-1 border-gray-500 rounded m-5 w-full">
+    <li class="flex items-center bg-white p-2 hover:shadow-lg rounded cursor-pointer transition">
+        <% if cliente.imagem.attached? %>
+           <%= image_tag(cliente.imagem, class: 'w-[80px] h-[80px] rounded-full') %>
+        <% end %>
+        <div class="flex flex-col ml-2">
+          <p class="font-medium text-black truncate"><%= cliente.nome.truncate(50) %> (<%= cliente.sigla %>)</p>
+          <p><%= cliente.telefone %></p>
+        </div>
+
+    </li>
+  </div>
+  </a>
+<% else %>
+  <div id="<%= dom_id cliente %>" class="bg-white shadow px-10 py-5 border border-1 border-gray-500 rounded m-5 w-full text-gray-700">
+      <div class="flex">
+        <div class="flex flex-col w-full">
+          <div class="shrink-0 flex items-center py-4">
+              <div>
+                <% if cliente.imagem.attached? %>
+                    <%= image_tag(cliente.imagem, class: 'rounded-full w-[100px] h-[100px]  bg-gray-900') %>
+                <% end %>
+              </div>
+              <div class="px-5">
+                <p class="text-xs font-bold italic">Nome/Razão Social (Sigla)</p>
+                <p class="font-medium truncate"><%= cliente.nome %> (<%= cliente.sigla %>) </p>
+              </div>              
+          </div>        
+          <div class="flex w-full py-2">
+            <div class="flex flex-col">
+              <p class="text-xs font-bold italic">Telefone</p>
+              <p class="text-sm"><%= cliente.telefone %></p>
+            </div>
+          </div>
+          <div class="flex w-full py-2">
+            <div class="flex flex-col">
+              <p class="text-xs font-bold italic">Email</p>
+              <p class="text-sm"><%= cliente.email %></p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="flex py-2">
+        <div class="flex flex-col w-full">
+          <p class="text-xs font-bold italic">Endereço</p>
+          <p class="text-sm truncate">
+            <%= cliente.logradouro %>
+            <% if cliente.numero.present? %>
+            , <%= cliente.numero %>
+            <% end %>
+            <% if cliente.complemento.present? %>
+              , <%= cliente.complemento %>
+            <% end %>            
+          </p>
+          <p class="text-sm"><%= cliente.bairro %>, <%= cliente.cidade %>, <%= cliente.estado %></p>
+          <p class="text-sm"><%= cliente.cep %></p>
+        </div>
+      </div>
+
+  </div>
+<% end %>

@@ -1,0 +1,45 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  matricula: 1
+  apelido: MyString
+  nascimento: 2022-10-11
+  telefone: MyString
+  celular: MyString
+  logradouro: MyString
+  numero: MyString
+  complemento: MyString
+  bairro: MyString
+  cidade: MyString
+  estado: MyString
+  cep: MyString
+  cpf: MyString
+  cnh_registro: MyString
+  cnh_categoria: MyString
+  cnh_vencimento: MyString
+  tipo_sanguineo: MyString
+  data_admissao: 2022-10-11
+  data_demissao: 2022-10-11
+
+two:
+  nome: MyString
+  matricula: 1
+  apelido: MyString
+  nascimento: 2022-10-11
+  telefone: MyString
+  celular: MyString
+  logradouro: MyString
+  numero: MyString
+  complemento: MyString
+  bairro: MyString
+  cidade: MyString
+  estado: MyString
+  cep: MyString
+  cpf: MyString
+  cnh_registro: MyString
+  cnh_categoria: MyString
+  cnh_vencimento: MyString
+  tipo_sanguineo: MyString
+  data_admissao: 2022-10-11
+  data_demissao: 2022-10-11

@@ -1,0 +1,184 @@
+<%= form_with(model: cooperado, class: "contents") do |form| %>
+  <% if cooperado.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-orange-600 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(cooperado.errors.count, "error") %> prohibited this cooperado from being saved:</h2>
+
+      <ul>
+        <% cooperado.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div data-controller="hello" data-hello-hidden-class="hidden">
+
+  <span class="p-1" data-hello-target="pessoal">
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-3/4 px-3 mb-6 md:mb-0">
+      <%= form.label :nome %>
+      <%= form.text_field :nome, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+    <div class="w-full md:w-1/4 px-3">
+      <%= form.label :matricula %>
+      <%= form.number_field :matricula, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+    <div class="w-full md:w-8/12 px-3">
+      <%= form.label :apelido %>
+      <%= form.text_field :apelido, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>  
+
+	<div class="w-full md:w-4/12 px-3">
+	    <%= form.label :nascimento %>
+	    <%= form.date_field :nascimento, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+	</div>
+
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+	  <div class="w-full md:w-2/4 px-3">
+	    <%= form.label :telefone %>
+	    <%= form.text_field :telefone, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+	  <div class="w-full md:w-2/4 px-3">
+	    <%= form.label :celular %>
+	    <%= form.text_field :celular, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+  </div>
+
+  </span>
+ 
+  <span class="p-1" data-hello-target="endereco">  
+  
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+  <div class="w-full md:w-3/4 px-3">
+    <%= form.label :logradouro %>
+    <%= form.text_field :logradouro, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="w-full md:w-1/4 px-3">
+    <%= form.label :numero %>
+    <%= form.text_field :numero, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  </div>
+  
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+	  <div class="w-full md:w-2/4 px-3">
+	    <%= form.label :complemento %>
+	    <%= form.text_field :complemento, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+	  <div class="w-full md:w-2/4 px-3">
+	    <%= form.label :bairro %>
+	    <%= form.text_field :bairro, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+	  <div class="w-full md:w-2/12 px-3">
+	    <%= form.label :estado %>
+	    <%= form.select :estado, ["RJ","SP","MG", "ES"], { prompt: "UF"}, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+	  <div class="w-full md:w-7/12 px-3">
+	    <%= form.label :cidade %>
+	    <%= form.text_field :cidade, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+	  <div class="w-full md:w-3/12 px-3">
+	    <%= form.label :cep %>
+	    <%= form.text_field :cep, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+  </div>
+
+  </span>
+
+  <span class="p-1" data-hello-target="documento">  
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+	  <div class="w-full md:w-2/4 px-3">
+	    <%= form.label :tipo_sanguineo %>
+	    <%= form.text_field :tipo_sanguineo, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+	  <div class="w-full md:w-2/4 px-3">
+	    <%= form.label :cpf %>
+	    <%= form.text_field :cpf, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+	  <div class="w-full md:w-4/12 px-3">
+	    <%= form.label :cnh_registro %>
+	    <%= form.text_field :cnh_registro, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+	  <div class="w-full md:w-4/12 px-3">
+	    <%= form.label :cnh_categoria %>
+	    <%= form.text_field :cnh_categoria, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+	  <div class="w-full md:w-4/12 px-3">
+	    <%= form.label :cnh_vencimento %>
+	    <%= form.date_field :cnh_vencimento, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+	  <div class="w-full md:w-2/4 px-3">
+	    <%= form.label :data_admissao %>
+	    <%= form.date_field :data_admissao, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+	  <div class="w-full md:w-2/4 px-3">
+	    <%= form.label :data_demissao %>
+	    <%= form.date_field :data_demissao, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+	  </div>
+
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="my=5">
+      <%= form.label :imagem %>
+      <%= form.file_field :imagem, multiple: false %> 
+    </div> 
+
+    <div class="my=5">
+      <% if cooperado.imagem.attached? %>
+          <%= image_tag(cooperado.imagem, class: 'w-64 h-auto block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2') %>
+      <% end %>        
+    </div>   
+  </div>  
+
+  </span>
+
+	</div>
+  <hr class="mt-6">
+
+
+  <div class="flex flex-wrap">
+
+    <%= form.submit "Salvar" , class: "rounded-lg py-3 mx-2 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+
+  </div>
+
+<% end %>

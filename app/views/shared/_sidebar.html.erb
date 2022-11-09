@@ -1,0 +1,139 @@
+<%
+    root = Rails.root.to_s #make sure string    
+    puts "#{root}/public/menu.json"
+    file = File.read("#{root}/public/menu.json")
+    json_object = JSON.parse(file)
+%>
+
+
+
+    <div class="pt-5 pb-2 px-6">
+
+        <div class="grow flex justify-center w-full">
+
+            <h2 class="text-3xl font-semibold text-gray-200"><%= Figaro.env.app_name %></h2>
+
+        </div>
+
+    </div>
+
+    <hr class="my-6 border-gray-600" />
+  
+    <div class="flex flex-col justify-between flex-1 text-sm">
+        <nav>
+            <% json_object.each do |menu| %>
+                <div class="flex items-center text-gray-300 font-medium my-4">         
+                <span class='mx-2'><%= menu["icon"].html_safe %></span>
+                <%= link_to menu["label"], menu["url"], class: 'ml-2' %>
+                </div>
+            <% end %>
+
+            <hr class="my-6 border-gray-600" />
+
+            <div>
+            <%= button_to sair_path, method: :delete, class: "flex items-center text-gray-300 font-medium my-4" do  %>
+                <span class="mx-2">
+                    <svg
+                    version="1.1"
+                    id="Layer_1"
+                    x="0px"
+                    y="0px"
+                    width=22
+                    height=22
+                    viewBox="0 0 24.000001 24.000001"
+                    xml:space="preserve"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:svg="http://www.w3.org/2000/svg"><defs
+                    id="defs63" />
+                    <g
+                    id="g22"
+                    transform="matrix(0.04296865,0,0,0.04296865,0.76113647,1.1494879)">
+                        <g
+                    id="g20">
+                            <path
+                    d="m 450.88,53.36 c -4.364,-4.363 -10.282,-6.814 -16.455,-6.814 -0.002,0 -0.005,0 -0.006,0 l -23.267,0.008 v 23.273 23.273 325.81 23.273 23.273 h 23.273 c 12.853,0 23.273,-10.42 23.273,-23.273 V 69.819 C 457.697,63.645 455.246,57.725 450.88,53.36 Z"
+                    id="path18" />
+                        </g>
+                    </g>
+                    <g
+                    id="g28"
+                    transform="matrix(0.9166668,0,0,0.9166668,1.2742917,1.1567054)">
+                        <g
+                    id="g26">
+                            <path
+                    d="M 16.14134,0.24726635 C 15.894263,0.03998562 15.568201,-0.04743604 15.250577,0.00881382 L 2.8869513,2.1919178 c -0.521295,0.092015 -0.90131,0.5449674 -0.90131,1.0742786 V 20.719403 c 0,0.529358 0.380062,0.982404 0.901357,1.074326 L 15.250624,23.97552 c 0.06314,0.01111 0.126468,0.01659 0.189515,0.01659 0.254484,0 0.503295,-0.08911 0.701248,-0.255187 0.247078,-0.207281 0.389671,-0.513186 0.389671,-0.835685 V 22.675117 21.810322 20.719403 19.628484 4.3567405 3.2658214 2.1749022 1.0830456 c 0,-0.3224524 -0.142593,-0.62840476 -0.389718,-0.83577925 z M 11.848116,13.491015 c -0.202827,0.202968 -0.484358,0.319265 -0.77156,0.319265 -0.287249,0 -0.567983,-0.116344 -0.771654,-0.319359 -0.202922,-0.203484 -0.3192647,-0.484217 -0.3192647,-0.77156 0,-0.28725 0.1163427,-0.568077 0.3192647,-0.771561 0.203624,-0.202968 0.484358,-0.319359 0.771654,-0.319359 0.287202,0 0.568733,0.116344 0.77156,0.319359 0.202922,0.203578 0.319359,0.484311 0.319359,0.771561 -4.7e-5,0.28739 -0.116484,0.568123 -0.319359,0.771654 z"
+                    id="path24"
+                    style="stroke-width:0.0468749" />
+                        </g>
+                    </g>
+                    <g
+                    id="g30">
+                    </g>
+                    <g
+                    id="g32">
+                    </g>
+                    <g
+                    id="g34">
+                    </g>
+                    <g
+                    id="g36">
+                    </g>
+                    <g
+                    id="g38">
+                    </g>
+                    <g
+                    id="g40">
+                    </g>
+                    <g
+                    id="g42">
+                    </g>
+                    <g
+                    id="g44">
+                    </g>
+                    <g
+                    id="g46">
+                    </g>
+                    <g
+                    id="g48">
+                    </g>
+                    <g
+                    id="g50">
+                    </g>
+                    <g
+                    id="g52">
+                    </g>
+                    <g
+                    id="g54">
+                    </g>
+                    <g
+                    id="g56">
+                    </g>
+                    <g
+                    id="g58">
+                    </g>
+                    </svg>              
+                </span>
+                <span class="ml-2">Sair do Sistema</span>
+            <% end %>
+            </div>
+
+        </nav>
+
+        <% if usuario_signed_in? %>
+            <div class="pt-4 pb-2 px-6">
+
+                <div class="flex flex-col items-center justify-center">
+                    <div class="shrink-0">
+                        <% if current_usuario.imagem.attached? %>
+                            <%= image_tag(current_usuario.imagem, class: 'rounded-full w-[50px] h-[50px]  bg-gray-900') %>
+                        <% end %>                        
+                    </div>
+                    <div class="grow flex justify-center w-full my-2">
+                        <p class="text-sm font-semibold text-gray-200"><%= link_to current_usuario.nome, edit_usuario_path %></p>
+                    </div>
+                </div>
+                
+            </div>
+        <% end %>
+    </div>

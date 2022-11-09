@@ -1,0 +1,20 @@
+<div class="flex flex-col w-full bg-white text-gray-600 shadow">
+
+  <%= render 'localiza_cliente' %>
+     
+  <div class="flex justify-between h-16 content-center items-center">
+    <p class="py-2 mx-4 text-4xl">Listando Clientes</p>
+    <%= render 'botoes' %>
+  </div>
+
+</div>
+
+<div class="my-4 mx-auto px-4 md:px-12"><ul>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 sm:gap-4">
+        <%= render @clientes %>
+    </div></ul>
+</div>
+
+<div class="max-w-content flex flex-row flex-no-wrap my-5 mx-10 text-xs text-gray-700">
+   <%== pagy_bulma_nav(@pagy) %>
+</div>

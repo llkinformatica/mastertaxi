@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tabela_preco: one
+  itinerario: one
+  valor_corrida: 9.99
+  valor_hora_espera: 9.99
+  valor_km_deslocamento: 9.99
+
+two:
+  tabela_preco: two
+  itinerario: two
+  valor_corrida: 9.99
+  valor_hora_espera: 9.99
+  valor_km_deslocamento: 9.99

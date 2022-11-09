@@ -1,0 +1,108 @@
+<% if action_name === "index" %>
+  <a href='cooperados/<%= cooperado.id %>'>
+  <div id="<%= dom_id cooperado %>" class="bg-white shadow px-5 py-2 border border-1 border-gray-500 rounded m-5 w-full">
+    <li class="flex items-center bg-white p-2 hover:shadow-lg rounded cursor-pointer transition">
+        <% if cooperado.imagem.attached? %>
+           <%= image_tag(cooperado.imagem, class: 'w-[80px] h-[80px] rounded-full') %>
+        <% end %>
+        <div class="flex flex-col ml-2">
+          <p class="font-medium text-black truncate"><%= cooperado.nome.truncate(50) %></p>
+          <p><%= cooperado.celular %></p>
+          <span class="text-xs text-gray-600">
+            Matrícula: <%= cooperado.matricula.to_s.rjust(2, "0") %>
+          </span>
+        </div>
+
+    </li>
+  </div>
+  </a>
+<% else %>
+  <div id="<%= dom_id cooperado %>" class="bg-white shadow px-10 py-2 border border-1 border-gray-500 rounded m-5 w-full text-gray-700">
+      <div class="flex">
+        <div class="flex flex-col w-full">
+          <div class="shrink-0 flex items-center py-4">
+              <div>
+                <% if cooperado.imagem.attached? %>
+                    <%= image_tag(cooperado.imagem, class: 'rounded-full w-[100px] h-[100px]  bg-gray-900') %>
+                <% end %>
+              </div>
+              <div class="px-5">
+                <p class="text-xs italic">Nome (Apelido)</p>
+                <p class="font-medium truncate"><%= cooperado.nome %> (<%= cooperado.apelido %>) </p>
+              </div>              
+          </div>        
+          <div class="flex w-full py-2">
+            <div class="flex flex-col w-2/4">
+              <p class="text-xs italic">Telefone / Celular</p>
+              <p class="text-sm"><%= cooperado.telefone %> / <%= cooperado.celular %></p>
+            </div>
+            <div class="flex flex-col w-1/4">
+              <p class="text-xs italic">Matrícula</p>
+              <p class="text-sm text-gray-600"><%= cooperado.matricula.to_s.rjust(2, "0") %></p>
+            </div>
+            <div class="flex flex-col w-1/4">
+              <p class="text-xs italic">Nascimento</p>
+              <p class="text-sm text-gray-600"><%= cooperado.nascimento.strftime('%d/%m/%Y') if cooperado.nascimento.present? %></p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="flex flex-col w-full">
+          <p class="text-xs italic">Endereço</p>
+          <p class="truncate">
+            <%= cooperado.logradouro %>
+            <% if cooperado.numero.present? %>
+            , <%= cooperado.numero %>
+            <% end %>
+            <% if cooperado.complemento.present? %>
+              , <%= cooperado.complemento %>
+            <% end %>            
+          </p>
+          <p class="truncate"><%= cooperado.bairro %>, <%= cooperado.cidade %>, <%= cooperado.estado %></p>
+          <p class="truncate"><%= cooperado.cep %></p>
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="flex flex-col w-full">
+          <div class="flex w-full py-2">
+            <div class="flex flex-col w-full md:w-1/4">
+              <p class="text-xs italic">Tipo Sanguíneo</p>
+              <p class="text-sm"><%= cooperado.tipo_sanguineo %></p>
+            </div>
+            <div class="flex flex-col w-full md:w-1/4">
+              <p class="text-xs italic">CPF</p>
+              <p class="text-sm text-gray-600"><%= cooperado.cpf %></p>
+            </div>
+          </div>
+          <div class="flex w-full py-2">
+            <div class="flex flex-col w-full md:w-1/3">
+              <p class="text-xs italic">CNH Registro</p>
+              <p class="text-sm text-gray-600"><%= cooperado.cnh_registro %></p>
+            </div>
+            <div class="flex flex-col w-full md:w-1/3">
+              <p class="text-xs italic">CNH Categoria</p>
+              <p class="text-sm text-gray-600"><%= cooperado.cnh_categoria %></p>
+            </div>
+            <div class="flex flex-col w-full md:w-1/3">
+              <p class="text-xs italic">CNH Vencimento</p>
+              <p class="text-sm text-gray-600"><%= cooperado.cnh_vencimento.strftime('%d/%m/%Y') if cooperado.cnh_vencimento.present? %></p>
+            </div>                        
+          </div>
+          <div class="flex w-full py-2">
+            <div class="flex flex-col w-full md:w-1/2">
+              <p class="text-xs italic">Admissão</p>
+              <p class="text-sm text-gray-600"><%= cooperado.data_admissao.strftime('%d/%m/%Y') if cooperado.data_admissao.present? %></p>
+            </div>
+            <div class="flex flex-col w-full md:w-1/2">
+              <p class="text-xs italic">Demissão</p>
+              <p class="text-sm text-gray-600"><%= cooperado.data_demissao.strftime('%d/%m/%Y') if cooperado.data_demissao.present? %></p>
+            </div>                        
+          </div>          
+        </div>
+      </div>
+
+  </div>
+<% end %>

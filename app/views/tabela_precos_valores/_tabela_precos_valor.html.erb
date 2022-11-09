@@ -1,0 +1,32 @@
+<div id="<%= dom_id tabela_precos_valor %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Tabela preco:</strong>
+    <%= tabela_precos_valor.tabela_preco_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Itinerario:</strong>
+    <%= tabela_precos_valor.itinerario_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Valor corrida:</strong>
+    <%= tabela_precos_valor.valor_corrida %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Valor hora espera:</strong>
+    <%= tabela_precos_valor.valor_hora_espera %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Valor km deslocamento:</strong>
+    <%= tabela_precos_valor.valor_km_deslocamento %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this tabela precos valor", tabela_precos_valor, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this tabela precos valor', edit_tabela_precos_valor_path(tabela_precos_valor), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
