@@ -3,7 +3,11 @@ class LocalidadesController < ApplicationController
 
   # GET /localidades or /localidades.json
   def index
-    @localidades = Localidade.all
+    if params[:query].present?
+      @pagy, @localidades = pagy(Localidade.where("nome LIKE ?", "%#{params[:query]}%").order(:nome))
+    else
+      @pagy, @localidades = pagy(Localidade.all.order(:nome))
+    end
   end
 
   # GET /localidades/1 or /localidades/1.json
@@ -65,6 +69,6 @@ class LocalidadesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def localidade_params
-      params.require(:localidade).permit(:nome, :latitude, :longitude)
+      params.require(:localidade).permit(:nome, :latitude, :longitude, :parada)
     end
 end

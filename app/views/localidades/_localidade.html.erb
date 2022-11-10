@@ -1,22 +1,28 @@
-<div id="<%= dom_id localidade %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Nome:</strong>
-    <%= localidade.nome %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Latitude:</strong>
-    <%= localidade.latitude %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Longitude:</strong>
-    <%= localidade.longitude %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this localidade", localidade, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this localidade', edit_localidade_path(localidade), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+<div id="<%= dom_id localidade %>" data-controller="maps" data-action="google-maps-callback@window->maps#initializeMap" class="bg-white shadow px-5 py-2 border border-1 border-gray-500 rounded m-5 w-full">
+<% if action_name === "index" %>
+  <a href='localidades/<%= localidade.id %>'>
+    <li class="flex items-center bg-white p-2 hover:shadow-lg rounded cursor-pointer transition">
+        <div class="flex flex-col ml-2 w-full">
+          <div class="flex justify-between font-medium text-black">
+            <span class="truncate"><%= localidade.nome %></span>
+            <% if localidade.parada? %><span class="flex bg-green-500 px-5 rounded-full text-xs text-white items-center">Parada</span><% end %>
+          </div>
+          <p>Lat.: <%= localidade.latitude %></p>
+          <p>Lgt.: <%= localidade.longitude %></p>
+        </div>
+    </li>
+  </a>
+<% else %>
+    <li class="flex items-center flex-col bg-white p-2 hover:shadow-lg rounded cursor-pointer transition">
+        <div class="flex flex-col ml-2 w-full my-5">
+          <div class="flex justify-between font-medium text-black truncate">
+            <span class="truncate"><%= localidade.nome %></span>
+            <% if localidade.parada? %><span class="flex bg-green-500 px-5 rounded-full text-xs text-white items-center">Parada</span><% end %>
+          </div>
+          <p data-target="maps.latitude">Lat.: <%= localidade.latitude %></p>
+          <p data-target="maps.longitude">Lgt.: <%= localidade.longitude %></p>
+        </div>
+        <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
+    </li>
+<% end %>
 </div>

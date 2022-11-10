@@ -4,8 +4,10 @@ one:
   nome: MyString
   latitude: 9.99
   longitude: 9.99
+  parada: false
 
 two:
   nome: MyString
   latitude: 9.99
   longitude: 9.99
+  parada: false

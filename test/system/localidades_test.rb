@@ -17,6 +17,7 @@ class LocalidadesTest < ApplicationSystemTestCase
     fill_in "Latitude", with: @localidade.latitude
     fill_in "Longitude", with: @localidade.longitude
     fill_in "Nome", with: @localidade.nome
+    check "Parada" if @localidade.parada
     click_on "Create Localidade"
 
     assert_text "Localidade was successfully created"
@@ -30,6 +31,7 @@ class LocalidadesTest < ApplicationSystemTestCase
     fill_in "Latitude", with: @localidade.latitude
     fill_in "Longitude", with: @localidade.longitude
     fill_in "Nome", with: @localidade.nome
+    check "Parada" if @localidade.parada
     click_on "Update Localidade"
 
     assert_text "Localidade was successfully updated"

@@ -17,7 +17,7 @@ class LocalidadesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create localidade" do
     assert_difference("Localidade.count") do
-      post localidades_url, params: { localidade: { latitude: @localidade.latitude, longitude: @localidade.longitude, nome: @localidade.nome } }
+      post localidades_url, params: { localidade: { latitude: @localidade.latitude, longitude: @localidade.longitude, nome: @localidade.nome, parada: @localidade.parada } }
     end
 
     assert_redirected_to localidade_url(Localidade.last)
@@ -34,7 +34,7 @@ class LocalidadesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update localidade" do
-    patch localidade_url(@localidade), params: { localidade: { latitude: @localidade.latitude, longitude: @localidade.longitude, nome: @localidade.nome } }
+    patch localidade_url(@localidade), params: { localidade: { latitude: @localidade.latitude, longitude: @localidade.longitude, nome: @localidade.nome, parada: @localidade.parada } }
     assert_redirected_to localidade_url(@localidade)
   end
 
