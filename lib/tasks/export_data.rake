@@ -21,6 +21,13 @@ namespace :export do
           .serializable_hash
           .delete_if{|key,value| excluded_keys.include?(key)} 
         puts "Cliente.create(#{serialized})"
-      end              
+      end
+      Localidade.all.each do |localidades| 
+        excluded_keys = ['created_at', 'updated_at', 'id'] 
+        serialized = localidades
+          .serializable_hash
+          .delete_if{|key,value| excluded_keys.include?(key)} 
+        puts "Localidade.create(#{serialized})"
+      end                    
     end
 end
