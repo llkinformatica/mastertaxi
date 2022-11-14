@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="maps"
 export default class extends Controller {
-  static targets = ["field","map","latitude","longitude","nome"]
+  static targets = ["field","map","latitude","longitude"]
 
   connect() {
     if (typeof (google) != "undefined"){

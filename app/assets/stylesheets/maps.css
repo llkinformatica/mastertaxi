@@ -1,4 +1,10 @@
 .map {
     width: 100%;
     min-height: 400px;
+    border: 1px #ccc
+}
+
+.map-full {
+    width: 100%;
+    min-height: 100vh;
 }

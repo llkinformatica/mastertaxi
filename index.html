@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MasterTaxi - Gerenciador de Corridas</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="M0Pzv6_UUjRYZHr2cU6x9CBL5Ox-yFF1iPpA3sYM_-xmFpKyHsIyMBjlzjvOsAT6T87VkN9J36UYu--0LG5Z4g" />
+    
+    <link rel="stylesheet" href="/assets/tailwind-b5545d46456404beb6118b3d51924db6c1f0646f7d20999e87f489fc3424c7a2.css" data-turbo-track="reload" />
+<link rel="stylesheet" href="/assets/inter-font-8c3e82affb176f4bca9616b838d906343d1251adc8408efe02cf2b1e4fcf2bc4.css" data-turbo-track="reload" />
+
+    <link rel="stylesheet" href="/assets/application-21ae7d6ae7f0d0be1962f0647c2bb814bc97b404438f564e1792d9618635da1c.css" data-turbo-track="reload" />
+  </head>
+
+  <body>
+      <div class="relative bg-gray-900">
+
+
+<div class="hidden bg-cover lg:block relative md:fixed w-full md:w-7/12 lg:w-2/3 min-h-screen inset-0" style="background-image: url(https://images.unsplash.com/photo-1583679084487-8d54d20294ed?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1454&amp;q=80)">
+
+        <div class="flex flex-col justify-center mx-16 min-h-screen">
+            <h1 class="text-white text-8xl">Master<span class="text-[#e0ae00]">Táxi</span></h1>
+            <p class="text-white text-4xl">Gerenciador de Corridas</p>
+        </div>
+
+    </div>
+
+    <div class="flex flex-col justify-center w-full md:w-5/12 lg:w-2/6 ml-auto px-12 min-h-screen py-4">
+
+        <div class="text-center">
+        
+            <h2 class="text-4xl font-bold text-center text-white">Entrar no Sistema!</h2>
+                    
+            <p class="mt-3 text-gray-300">Digite seu nome de usuário e a sua senha.</p>
+            
+        </div>
+
+        <div class="mt-8">
+                
+        <form class="contents" action="/login" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="Xl3lASnBAqMNQS_uxDJwFvbiMQeSw_YaUNz6bDNQnhw7IQcvxTyR8huBLxvg2hd4oTnyiktwC8D2z18BdxBYqw" autocomplete="off" />
+
+            <div class="my-5">
+                <label class="text-white text-sm" for="usuario_Nome de Usuário">Nome de usuário</label>
+                <input autocomplete="off" autofocus="autofocus" placeholder="Username" class="block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" type="text" name="usuario[username]" id="usuario_username" />
+            </div>
+
+            <div class="my-5">
+                <label class="text-white text-sm" for="usuario_Senha">Senha</label>
+                <input autocomplete="off" placeholder="Sua senha" class="block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" type="password" name="usuario[password]" id="usuario_password" />
+            </div>
+
+            <div class="inline my-5">
+                <input type="submit" name="commit" value="Entrar" class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer mt-2" data-disable-with="Entrar" />
+            </div>
+
+</form>
+        </div>
+
+    </div>
+
+</div>
+  </body>
+</html>

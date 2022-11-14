@@ -16,17 +16,24 @@
 
   <div class="my-5">
     <%= form.label :nome %>
-    <%= form.text_field :nome, data: { target: "maps.field", action: "keydown->maps#preventSubmit" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :nome, data: { target: "maps.field", action: "keydown->maps#preventSubmit" }, class: "block shadow rounded-md border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="my-5">
+  <div class="flex justify-between">
+
+  <div class="my-5 w-full mr-2">
     <%= form.label :latitude %>
-    <%= form.text_field :latitude, data: { target: "maps.latitude" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :latitude, data: { target: "maps.latitude" }, class: "block shadow rounded-md bg-gray-300 border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="my-5">
+  <div class="my-5 w-full ml-2">
     <%= form.label :longitude %>
-    <%= form.text_field :longitude, data: { target: "maps.longitude" }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :longitude, data: { target: "maps.longitude" }, class: "block shadow rounded-md bg-gray-300 border border-solid border-gray-300 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
+
+
   </div>
 
   <div class="my-5">
@@ -36,7 +43,7 @@
 
   <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class="inline my-5">
+    <%= form.submit "Salvar", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>

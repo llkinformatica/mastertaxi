@@ -14,6 +14,10 @@ class LocalidadesController < ApplicationController
   def show
   end
 
+  def teste
+    @localidades = Localidade.find(params[:id])
+  end
+
   # GET /localidades/new
   def new
     @localidade = Localidade.new

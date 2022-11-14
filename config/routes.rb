@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   resources :tabela_precos_valores
   resources :itinerarios
   resources :cooperados
-  get 'welcome/index'
+  
   mount Ckeditor::Engine => '/ckeditor'
+
+  get '/localidades/:id/teste', to: "localidades#teste"
   
   root "welcome#index"
+  get 'welcome/index'
+  get "welcome/localizar", as: 'localizar'
 
   post "sign_up", to: "usuarios#create", as: "usuarios"
   get "sign_up", to: "usuarios#new"
